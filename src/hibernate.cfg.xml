@@ -8,6 +8,7 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>	
     <session-factory>
     <!-- Database connection settings -->
@@ -15,7 +16,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Hibernate</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">190323</property>
 
         <!-- Disable the second-level cache  -->
         <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
@@ -27,7 +28,7 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-		<mapping class="hibernate.one2one.User"/>
-		<mapping class="hibernate.one2one.Adress"/>
+		<mapping class="one2one.model.User"/>
+		<mapping class="one2one.model.Adress"/>
     </session-factory>
 </hibernate-configuration>

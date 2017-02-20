@@ -1,4 +1,4 @@
-package hibernate.one2one;
+package one2one.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

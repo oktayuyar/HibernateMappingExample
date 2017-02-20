@@ -1,4 +1,4 @@
-package hibernate.one2one;
+package one2one.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

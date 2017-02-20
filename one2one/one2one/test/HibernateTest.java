@@ -1,8 +1,8 @@
-package hibernate.one2one;
+package one2one.test;
 
-import hibernate.one2one.HibernateUtil;
-import hibernate.one2one.User;
-import hibernate.one2one.Adress;
+import one2one.model.Adress;
+import one2one.model.User;
+import one2one.util.HibernateUtil;
 
 import org.hibernate.Session;
 

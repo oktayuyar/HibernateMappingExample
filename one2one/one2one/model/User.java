@@ -1,4 +1,4 @@
-package hibernate.one2one;
+package one2one.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
-
-import hibernate.one2one.Adress;
 
 @Entity
 public class User {
