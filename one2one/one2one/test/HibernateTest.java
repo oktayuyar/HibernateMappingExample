@@ -2,15 +2,12 @@ package one2one.test;
 
 import one2one.model.Adress;
 import one2one.model.User;
-import one2one.util.HibernateUtil;
 
-import org.hibernate.Session;
+import one2one.implement.UserDAOImpl;
 
 public class HibernateTest {
 	
 	public static void main(String[] args) {
-		Session session = HibernateUtil.getHibernateSession();
-		session.beginTransaction();
 		
 		Adress address1 = new Adress();
         address1.setCity("Hatay");
@@ -21,22 +18,21 @@ public class HibernateTest {
         address2.setCity("Izmir");
         address2.setRoad("Modern Evler Cad.");
         address2.setStreet("Gul Meydani Sokak");
-
-        User user1 =new User();
+				
+		UserDAOImpl userDAOImpl=new UserDAOImpl();
+		User user1 =new User();
 		user1.setName("oktay");
 		user1.setSurname("uyar");
 		user1.setPhone("05373658934");
 		user1.setAdress(address1);
+		userDAOImpl.insertUser(user1);
 		
-        User user2 =new User();
-        user2.setName("ahmet");
-        user2.setSurname("tumkaya");
-        user2.setPhone("05053951235");
-        user2.setAdress(address2);
-        
-        session.save(user1);
-        session.save(user2);
-        
-        session.getTransaction().commit();
+		User user2 =new User();
+		user2.setName("ahmet");
+		user2.setSurname("uyar");
+		user2.setPhone("05373658934");
+		user2.setAdress(address2);
+		userDAOImpl.insertUser(user2);		
+
 	}
 }
