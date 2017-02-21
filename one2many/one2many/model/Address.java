@@ -1,13 +1,12 @@
-package one2one.model;
+package one2many.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TableGenerator;
 
 @Entity
-public class Adress {
+public class Address {
 	@TableGenerator(name="ADR_GEN",allocationSize=1)
 	@Id 
 	@GeneratedValue(generator="ADR_GEN")

@@ -1,15 +1,13 @@
-package one2one.util;
+package one2many.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import one2one.util.HibernateUtil;
-
 public class HibernateUtil {
 	
 	private final static SessionFactory sf = new Configuration()
-	        .configure("hibernate.cfg.xml").buildSessionFactory();
+	        .configure("hibernate.cfg2.xml").buildSessionFactory();
 	
     private volatile static Session session = sf.openSession();
     

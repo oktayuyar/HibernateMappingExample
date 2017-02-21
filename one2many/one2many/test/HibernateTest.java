@@ -1,8 +1,8 @@
-package one2one.test;
+package one2many.test;
 
-import one2one.implement.UserDAOImpl;
-import one2one.model.Address;
-import one2one.model.User;
+import one2many.model.User;
+import one2many.model.Address;
+import one2many.implement.UserDAOImpl;
 
 public class HibernateTest {
 	

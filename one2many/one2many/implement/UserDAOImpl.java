@@ -1,26 +1,28 @@
-package one2one.implement;
+package one2many.implement;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import one2one.interfaces.AdressDAO;
-import one2one.model.Adress;
-import one2one.util.HibernateUtil;
+import one2many.interfaces.UserDAO;
+import one2many.model.User;
+import one2many.util.HibernateUtil;
 
-public class AdressDAOImpl implements AdressDAO{
-	
+public class UserDAOImpl implements UserDAO{
+
 	Session session = HibernateUtil.getHibernateSession();
 
-	public Adress insertAdress(Adress a) {
+	public User insertUser(User u) {
 		try{
+			System.out.println("eklenen kullanıcının adı ve soyadı :"+u.getName()+" "+u.getSurname());
 			session.beginTransaction();
-			session.persist(a);
+			session.persist(u);
 			session.getTransaction().commit();
 			}
 		    catch (HibernateException e) {
 		    	if (session.getTransaction()!=null) session.getTransaction().rollback();
 		    	e.printStackTrace(); 
 			  }		
-			return a;
+			return u;
 	}
+
 }
