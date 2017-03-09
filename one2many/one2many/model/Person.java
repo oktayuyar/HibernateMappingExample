@@ -1,59 +1,62 @@
 package one2many.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.TableGenerator;
 
-import one2many.model.Address;
+import one2many.model.Vehicle;
 
 @Entity
-public class User {
-	@TableGenerator(name="ADR_GEN",allocationSize=1)
+public class Person {
+	@TableGenerator(name="PER_GEN",allocationSize=1)
 	@Id 
-	@GeneratedValue(generator="ADR_GEN")
+	@GeneratedValue(generator="PER_GEN")
 	private int id;
 	
 	private String name;
 	private String surname;
 	private String phone;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="address_id")
-	private Address address;
+	@OneToMany(cascade= CascadeType.ALL)
+	private Collection<Vehicle>  vehicle =new ArrayList<Vehicle>();
 	
-	public int getId() {
-		return id;
+	public Collection<Vehicle> getVehicle() {
+		return vehicle;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setVehicle(Collection<Vehicle> vehicle) {
+		this.vehicle = vehicle;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getSurname() {
 		return surname;
 	}
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	
 }

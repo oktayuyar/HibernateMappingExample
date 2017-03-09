@@ -1,7 +1,7 @@
 package one2many.interfaces;
 
-import one2many.model.Address;
+import one2many.model.Vehicle;
 
-public interface AddressDAO {
-	public Address insertAddress(Address a);
+public interface VehicleDAO {
+	public Vehicle insertVehicle(Vehicle u);
 }

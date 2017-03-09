@@ -3,17 +3,16 @@ package one2many.implement;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import one2many.interfaces.UserDAO;
-import one2many.model.User;
+import one2many.interfaces.PersonDAO;
+import one2many.model.Person;
 import one2many.util.HibernateUtil;
 
-public class UserDAOImpl implements UserDAO{
+public class PersonDAOImpl implements PersonDAO{
 
 	Session session = HibernateUtil.getHibernateSession();
 
-	public User insertUser(User u) {
+	public Person insertPerson(Person u) {
 		try{
-			System.out.println("eklenen kullanıcının adı ve soyadı :"+u.getName()+" "+u.getSurname());
 			session.beginTransaction();
 			session.persist(u);
 			session.getTransaction().commit();

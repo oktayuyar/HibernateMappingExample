@@ -1,37 +1,40 @@
 package one2many.test;
 
-import one2many.model.User;
-import one2many.model.Address;
-import one2many.implement.UserDAOImpl;
+import one2many.model.Person;
+import one2many.model.Vehicle;
+import one2many.implement.PersonDAOImpl;
+import one2many.implement.VehicleDAOImpl;
 
 public class HibernateTest {
 	
 	public static void main(String[] args) {
+		PersonDAOImpl userDAOImpl=new PersonDAOImpl();
+		VehicleDAOImpl vehicleDAOImpl=new VehicleDAOImpl();
 		
-		Address address1 = new Address();
-        address1.setCity("Hatay");
-        address1.setRoad("Ataturk Cad");
-        address1.setStreet("ozgurluk sokak");
-
-        Address address2 = new Address();
-        address2.setCity("Izmir");
-        address2.setRoad("Modern Evler Cad.");
-        address2.setStreet("Gul Sokak");
-				
-		UserDAOImpl userDAOImpl=new UserDAOImpl();
-		User user1 =new User();
-		user1.setName("oktay");
-		user1.setSurname("uyar");
-		user1.setPhone("05373658934");
-		user1.setAddress(address1);
-		userDAOImpl.insertUser(user1);
+		Person person1 =new Person();
+		person1.setName("Oktay");
+		person1.setSurname("Uyar");
+		person1.setPhone("05323453234");
+	
+		Vehicle vehicle1=new Vehicle();
+		vehicle1.setBrand("Ferrari");
+		vehicle1.setModel("F50");
+		vehicle1.setColor("Kirmizi");
 		
-		User user2 =new User();
-		user2.setName("ahmet");
-		user2.setSurname("uyar");
-		user2.setPhone("05373658934");
-		user2.setAddress(address2);
-		userDAOImpl.insertUser(user2);		
-
+		Vehicle vehicle2=new Vehicle();
+		vehicle2.setBrand("Volvo");
+		vehicle2.setModel("S60");
+		vehicle2.setColor("Gri");
+		
+		person1.getVehicle().add(vehicle1);
+		person1.getVehicle().add(vehicle2);
+		vehicle1.setPerson(person1);
+		vehicle2.setPerson(person1);
+		
+		userDAOImpl.insertPerson(person1);
+		vehicleDAOImpl.insertVehicle(vehicle1);
+		vehicleDAOImpl.insertVehicle(vehicle2);
+		
+		
 	}
 }
