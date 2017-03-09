@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
 
 @Entity
@@ -16,7 +17,7 @@ public class Address {
     private String street;
     private String road;
     private String city;
-
+    
 	public int getId() {
 		return id;
 	}
@@ -40,5 +41,5 @@ public class Address {
 	}
 	public void setCity(String city) {
 		this.city = city;
-	}
+	}	
 }

@@ -1,8 +1,8 @@
 package one2one.test;
 
-import one2one.implement.UserDAOImpl;
+import one2one.implement.PersonDAOImpl;
 import one2one.model.Address;
-import one2one.model.User;
+import one2one.model.Person;
 
 public class HibernateTest {
 	
@@ -18,20 +18,19 @@ public class HibernateTest {
         address2.setRoad("Modern Evler Cad.");
         address2.setStreet("Gul Sokak");
 				
-		UserDAOImpl userDAOImpl=new UserDAOImpl();
-		User user1 =new User();
-		user1.setName("oktay");
-		user1.setSurname("uyar");
-		user1.setPhone("05373658934");
-		user1.setAddress(address1);
-		userDAOImpl.insertUser(user1);
+		PersonDAOImpl personDAOImpl=new PersonDAOImpl();
+		Person person1 =new Person();
+		person1.setName("oktay");
+		person1.setSurname("uyar");
+		person1.setPhone("05373658934");
+		person1.setAddress(address1);
+		personDAOImpl.insertPerson(person1);
 		
-		User user2 =new User();
-		user2.setName("ahmet");
-		user2.setSurname("uyar");
-		user2.setPhone("05373658934");
-		user2.setAddress(address2);
-		userDAOImpl.insertUser(user2);		
-
+		Person person2 =new Person();
+		person2.setName("ahmet");
+		person2.setSurname("uyar");
+		person2.setPhone("05373658934");
+		person2.setAddress(address2);
+		personDAOImpl.insertPerson(person2);
 	}
 }

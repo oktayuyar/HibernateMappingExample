@@ -12,7 +12,7 @@ import javax.persistence.TableGenerator;
 import one2one.model.Address;
 
 @Entity
-public class User {
+public class Person {
 	@TableGenerator(name="ADR_GEN",allocationSize=1)
 	@Id 
 	@GeneratedValue(generator="ADR_GEN")
@@ -23,7 +23,7 @@ public class User {
 	private String phone;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="address_id")
+	@JoinColumn(name="address_id",unique = true)
 	private Address address;
 	
 	public int getId() {
